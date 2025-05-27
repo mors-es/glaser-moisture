@@ -6,11 +6,20 @@
     <title>Glaser Method - Moisture Risk Assessment</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="./scripts/app.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Glaser Method - Moisture Risk Assessment</h1>
+        <div class="language-switcher">
+            <label for="languageSelect">Language:</label>
+            <select id="languageSelect" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+        <h1 id="title">Glaser Method - Moisture Risk Assessment</h1>
         
         <div class="input-section">
             <h3>Boundary Conditions</h3>

@@ -1,0 +1,25 @@
+materials:
+  Gypsum Board:
+    thermalConductivity: 0.25
+    vaporPermeability: 2e-12
+  Mineral Wool:
+    thermalConductivity: 0.04
+    vaporPermeability: 5e-11
+  OSB:
+    thermalConductivity: 0.13
+    vaporPermeability: 3e-12
+  Concrete:
+    thermalConductivity: 1.7
+    vaporPermeability: 3e-12
+  Brick:
+    thermalConductivity: 0.77
+    vaporPermeability: 1e-12
+  Air Gap:
+    thermalConductivity: 0.18
+    vaporPermeability: 1e-9
+  XPS Insulation:
+    thermalConductivity: 0.034
+    vaporPermeability: 1e-13
+  Custom:
+    thermalConductivity: 0.1
+    vaporPermeability: 1e-11

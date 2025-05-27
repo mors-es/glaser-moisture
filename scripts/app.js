@@ -457,6 +457,39 @@ function createVaporChart(results) {
     });
 }
 
-window.onload = function() {
+let currentLanguage = 'en';
+let translations = {};
+
+// Load translations from the YAML file
+async function loadTranslations() {
+    const response = await fetch('./translations.yaml');
+    const yamlText = await response.text();
+    translations = jsyaml.load(yamlText);
+    updateUI();
+}
+
+// Update the UI with the selected language
+function updateUI() {
+    document.getElementById('title').textContent = translations[currentLanguage].title;
+    document.querySelector('h3').textContent = translations[currentLanguage].boundary_conditions;
+    document.querySelector('label[for="tempInterior"]').textContent = translations[currentLanguage].interior_temp;
+    document.querySelector('label[for="tempExterior"]').textContent = translations[currentLanguage].exterior_temp;
+    document.querySelector('label[for="rhInterior"]').textContent = translations[currentLanguage].interior_humidity;
+    document.querySelector('label[for="rhExterior"]').textContent = translations[currentLanguage].exterior_humidity;
+    document.querySelector('button[onclick="addMaterial()"]').textContent = translations[currentLanguage].add_material;
+    document.querySelector('button[onclick="loadDefaultWall()"]').textContent = translations[currentLanguage].load_default_wall;
+    document.querySelector('button[onclick="calculateRisk()"]').textContent = translations[currentLanguage].calculate_risk;
+    document.querySelector('#results-panel h3').textContent = translations[currentLanguage].analysis_results;
+}
+
+// Switch language
+function switchLanguage() {
+    currentLanguage = document.getElementById('languageSelect').value;
+    updateUI();
+}
+
+// Initialize the app
+window.onload = function () {
+    loadTranslations();
     loadDefaultWall();
 };

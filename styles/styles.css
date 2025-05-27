@@ -143,3 +143,13 @@ button:hover {
 canvas {
     max-height: 400px;
 }
+
+.language-switcher {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.language-switcher select {
+    padding: 5px;
+    font-size: 14px;
+}
