@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaser Method - Moisture Risk Assessment</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="./scripts/app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Glaser Method - Moisture Risk Assessment</h1>
+        
+        <div class="input-section">
+            <h3>Boundary Conditions</h3>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Interior Temperature (°C)</label>
+                    <input type="number" id="tempInterior" value="20" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Exterior Temperature (°C)</label>
+                    <input type="number" id="tempExterior" value="-10" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Interior Humidity (%)</label>
+                    <input type="number" id="rhInterior" value="50" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Exterior Humidity (%)</label>
+                    <input type="number" id="rhExterior" value="80" min="0" max="100">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <h3>Wall Materials (Interior to Exterior)</h3>
+            <div id="materials-container"></div>
+            <button onclick="addMaterial()">Add Material Layer</button>
+            <button onclick="loadDefaultWall()">Load Default Wall</button>
+            <button onclick="calculateRisk()">Calculate Moisture Risk</button>
+        </div>
+
+        <div class="wall-visualization" id="wallVisualization"></div>
+
+        <div id="results-panel" class="results-panel" style="display: none;">
+            <h3>Analysis Results</h3>
+            <div id="risk-assessment"></div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-container">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="vaporChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
